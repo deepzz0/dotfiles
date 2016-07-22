@@ -4,6 +4,7 @@ cd letsencrypt \
 sudo ./certbot-auto certonly --standalone --email deepzz.qi@gmail.com \
   -d deepzz.com \
   -d www.deepzz.com \
-  -d registry.deepzz.com 
+  -d registry.deepzz.com \
+  -d static.deepzz.com 
 
 #./certbot-auto renew --standalone --pre-hook "service nginx stop" --post-hook "service nginx start"
