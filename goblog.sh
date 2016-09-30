@@ -1,3 +1,3 @@
 docker stop blog
 docker rm blog
-docker run -d -p 80:80 -p 443:443 --restart=always -v /data/goblog:/data/goblog -v ~/certs:/certs --name blog 127.0.0.1:5000/goblog
+docker run -d -p 9010:9010 --restart=always -v /data/goblog:/data/goblog -v ~/certs:/certs --name blog registry.cn-hangzhou.aliyuncs.com/deepzz/goblog
