@@ -29,7 +29,6 @@ Plugin 'gregsexton/gitv'
 Plugin 'vim-scripts/matchit.zip'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'scrooloose/nerdtree'
-" Plugin 'Xuyuanp/git-nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'scrooloose/syntastic'
@@ -144,7 +143,7 @@ set background=dark
 colorscheme molokai
 set fillchars=vert:\ 
 " set guifontwide=方正启体简体
-set guifontwide=FZQiTi-S14S
+" set guifontwide=FZQiTi-S14S
 set clipboard+=unnamed
 set numberwidth=4
 func! MyCtrlPTag()
@@ -158,33 +157,33 @@ com! MyCtrlPTag call MyCtrlPTag()
 if has("gui_macvim")
         set transparency=10 " Make the window slightly transparent
         set fullscreen
-	let g:ctrlp_map = '<D-p>'
-	nmap <C-]> g<c-]>
+    let g:ctrlp_map = '<D-p>'
+    nmap <C-]> g<c-]>
         nmap <D-r> :MyCtrlPTag<cr>
         imap <D-r> <esc>:MyCtrlPTag<cr>
-	nmap <D-R> :CtrlPBufTagAll<cr>
-	imap <D-R> <esc>:CtrlPBufTagAll<cr>
-	nmap <D-w> :bd<cr>
-	imap <D-w> <esc>:bd<cr>
-	map <D-/> :TComment<cr>
-	vmap <D-/> :TComment<cr>gv
-	nmap <D-f> :CtrlSF <C-R>=expand("<cword>")<CR>
-	imap <D-f> <ESC>:CtrlSF <C-R>=expand("<cword>")<CR>
-	vnoremap <D-f>  y :CtrlSF"<C-R>=escape(@", '\\/.*$^~[]()"')<CR>"
+    nmap <D-R> :CtrlPBufTagAll<cr>
+    imap <D-R> <esc>:CtrlPBufTagAll<cr>
+    nmap <D-w> :bd<cr>
+    imap <D-w> <esc>:bd<cr>
+    map <D-/> :TComment<cr>
+    vmap <D-/> :TComment<cr>gv
+    nmap <D-f> :CtrlSF <C-R>=expand("<cword>")<CR>
+    imap <D-f> <ESC>:CtrlSF <C-R>=expand("<cword>")<CR>
+    vnoremap <D-f>  y :CtrlSF"<C-R>=escape(@", '\\/.*$^~[]()"')<CR>"
 
-	map <D-e> :NERDTreeTabsToggle<CR>
-	map <leader>e :NERDTreeFind<CR><CR>
-	" Window switch map {{{
-	map <D-j> <C-W>j
-	map <D-k> <C-W>k
-	map <D-l> <C-W>l
-	map <D-h> <C-W>h
+    map <D-e> :NERDTreeTabsToggle<CR>
+    map <leader>e :NERDTreeFind<CR><CR>
+    " Window switch map {{{
+    map <D-j> <C-W>j
+    map <D-k> <C-W>k
+    map <D-l> <C-W>l
+    map <D-h> <C-W>h
 
-	" cscope {{{"
-	nmap <D-[> :cs find c <C-R>=expand("<cword>")<CR><CR><C-O>:copen<CR>
-	nmap <D-\> :cs find s <C-R>=expand("<cword>")<CR><CR><C-O>:copen<CR>
-	nmap <D-]> :cs find g <C-R>=expand("<cword>")<CR><CR>
-	" }}}
+    " cscope {{{"
+    nmap <D-[> :cs find c <C-R>=expand("<cword>")<CR><CR><C-O>:copen<CR>
+    nmap <D-\> :cs find s <C-R>=expand("<cword>")<CR><CR><C-O>:copen<CR>
+    nmap <D-]> :cs find g <C-R>=expand("<cword>")<CR><CR>
+    " }}}
 endif
 
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/cscope*,*/*.csv/,*/*.log,*tags*,*/bin/*        " Linux/MacOSX
@@ -238,7 +237,7 @@ if !exists('g:neocomplete#sources#omni#input_patterns')
 endif
 
 if !exists('g:neocomplete#sources')
-	let g:neocomplete#sources = {}
+    let g:neocomplete#sources = {}
 endif
 let g:neocomplete#sources.go = [ "buffer", "omni", "ultisnips"]
 
@@ -252,13 +251,13 @@ let g:UltiSnipsJumpBackwardTrigger="<S-TAB>"
 let g:UltiSnipsExpandTrigger="<nop>"
 let g:ulti_expand_or_jump_res = 0
 function! <SID>ExpandSnippetOrReturn()
-	" let snippet = UltiSnips#ExpandSnippetOrJump()
-	let snippet = UltiSnips#ExpandSnippet()
-	if g:ulti_expand_or_jump_res > 0
-		return snippet
-	else
-		return ""
-	endif
+    " let snippet = UltiSnips#ExpandSnippetOrJump()
+    let snippet = UltiSnips#ExpandSnippet()
+    if g:ulti_expand_or_jump_res > 0
+        return snippet
+    else
+        return ""
+    endif
 endfunction
 imap <expr> <CR> pumvisible() ?
     \ neocomplete#mappings#close_popup() . "<C-R>=<SID>ExpandSnippetOrReturn()<CR>":
@@ -269,15 +268,15 @@ if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
 
-let g:ctrlp_cmd = 'CtrlPMixed'			" search anything (in files, buffers and MRU files at the same time.)
+let g:ctrlp_cmd = 'CtrlPMixed'          " search anything (in files, buffers and MRU files at the same time.)
 let g:ctrlp_by_filename = 1
-let g:ctrlp_working_path_mode = 'ra'	" search for nearest ancestor like .git, .hg, and the directory of the current file
-let g:ctrlp_match_window_bottom = 1		" show the match window at the top of the screen
-let g:ctrlp_max_height = 10				" maxiumum height of match window
-let g:ctrlp_switch_buffer = 'Et'		" jump to a file if it's open already
-let g:ctrlp_use_caching = 1				" enable caching
-let g:ctrlp_clear_cache_on_exit=1  		" speed up by not removing clearing cache evertime
-let g:ctrlp_mruf_max = 250 				" number of recently opened files
+let g:ctrlp_working_path_mode = 'ra'    " search for nearest ancestor like .git, .hg, and the directory of the current file
+let g:ctrlp_match_window_bottom = 1     " show the match window at the top of the screen
+let g:ctrlp_max_height = 10             " maxiumum height of match window
+let g:ctrlp_switch_buffer = 'Et'        " jump to a file if it's open already
+let g:ctrlp_use_caching = 1             " enable caching
+let g:ctrlp_clear_cache_on_exit=1       " speed up by not removing clearing cache evertime
+let g:ctrlp_mruf_max = 250              " number of recently opened files
 let g:ctrlp_open_new_file = 't'
 let g:ctrlp_open_multiple_files = 't'
 let g:ctrlp_open_new_file = 'r'
@@ -346,8 +345,8 @@ let g:syntastic_error_symbol = "▶▶"
 let g:syntastic_warning_symbol = "⚠"
 " let g:syntastic_go_checkers = ['errcheck', 'go']
 let g:syntastic_mode_map = { "mode": "passive",
-			\ "active_filetypes": ["ruby", "php", "go" ],
-			\ "passive_filetypes": ["shell"] }
+            \ "active_filetypes": ["ruby", "php", "go" ],
+            \ "passive_filetypes": ["shell"] }
 
 command! CO CtrlSFOpen
 
@@ -417,7 +416,7 @@ let g:tagbar_type_go = {
 if has("cscope")
         " set csprg=/usr/local/bin/cscope
         set csto=0
-	set cscopequickfix=s-,c-,d-,i-,t-,e-
+    set cscopequickfix=s-,c-,d-,i-,t-,e-
         set cst
         set nocsverb
         " add any database in current directory
@@ -457,7 +456,7 @@ function! Neoj()
     if pumvisible() == 1
         return "\<C-n>"
     else
-	return "\<C-j>"
+    return "\<C-j>"
     endif
 endfunction
 
@@ -482,45 +481,45 @@ let g:go_fmt_command = "goimports"
 let g:go_list_type = "quickfix"
 
 function! OnGolangCompleteDone()
-	if !exists('v:completed_item') || empty(v:completed_item)
-		return
-	endif
+    if !exists('v:completed_item') || empty(v:completed_item)
+        return
+    endif
 
-	let complete_str = v:completed_item.word
-	if complete_str == ''
-		return
-	endif
+    let complete_str = v:completed_item.word
+    if complete_str == ''
+        return
+    endif
 
-	let line = getline('.')
-	let next_char = line[col('.')-1]
+    let line = getline('.')
+    let next_char = line[col('.')-1]
         if  next_char == "("
                 return
         end
-	let cur_char =line[col('.')-2]
+    let cur_char =line[col('.')-2]
 
-	let abbr = v:completed_item.abbr
-	let startIdx = match(abbr,"(")
-	let endIdx = match(abbr,")")
-	if endIdx - startIdx > 1
-		let argsStr = strpart(abbr, startIdx+1, endIdx - startIdx -1)
-		let argsList = split(argsStr, ",")
-		let snippet = ""
-		if cur_char != "("
-			let snippet = "("
-		end
-		let c = 1
-		for i in argsList
-			if c > 1 
-				let snippet = snippet. ", "
-			endif
-			" strip space
-			let arg = substitute(i, '^\s*\(.\{-}\)\s*$', '\1', '') 
-			let snippet = snippet . '${'.c.":".arg.'}'
-			let c += 1
-		endfor
-		let snippet = snippet . ")$0"
-		call UltiSnips#Anon(snippet)
-	endif
+    let abbr = v:completed_item.abbr
+    let startIdx = match(abbr,"(")
+    let endIdx = match(abbr,")")
+    if endIdx - startIdx > 1
+        let argsStr = strpart(abbr, startIdx+1, endIdx - startIdx -1)
+        let argsList = split(argsStr, ",")
+        let snippet = ""
+        if cur_char != "("
+            let snippet = "("
+        end
+        let c = 1
+        for i in argsList
+            if c > 1 
+                let snippet = snippet. ", "
+            endif
+            " strip space
+            let arg = substitute(i, '^\s*\(.\{-}\)\s*$', '\1', '') 
+            let snippet = snippet . '${'.c.":".arg.'}'
+            let c += 1
+        endfor
+        let snippet = snippet . ")$0"
+        call UltiSnips#Anon(snippet)
+    endif
 endfunction
 
 autocmd FileType lua :set shiftwidth=4 
@@ -528,11 +527,11 @@ autocmd FileType lua :set shiftwidth=4
 set relativenumber
 augroup CursorLineOnlyInActiveWindow
         autocmd!
-	autocmd InsertLeave * setlocal relativenumber
-	autocmd InsertEnter * setlocal norelativenumber
-	autocmd BufEnter * setlocal cursorline
-	autocmd BufLeave * setlocal nocursorline
-	autocmd CompleteDone *.go  call OnGolangCompleteDone()
+    autocmd InsertLeave * setlocal relativenumber
+    autocmd InsertEnter * setlocal norelativenumber
+    autocmd BufEnter * setlocal cursorline
+    autocmd BufLeave * setlocal nocursorline
+    autocmd CompleteDone *.go  call OnGolangCompleteDone()
 augroup END
 
 let g:ycm_min_num_of_chars_for_completion = 1
