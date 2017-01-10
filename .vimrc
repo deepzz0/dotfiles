@@ -561,6 +561,7 @@ hi Visual     guibg=#2566FA
 " hi VertSplit guibg=#272822
 hi VertSplit guibg=#1B1D1E
 hi Cursor guibg=#FF0000
+hi Comment guifg=#7f7f7f
 
 let g:ctrlsf_winsize = '30%'
 
