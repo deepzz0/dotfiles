@@ -1,5 +1,5 @@
 " .vimrc for vim. maybe it worked well for osx.
-" url: https://github.com/deepzz0/dotfiles/blob/master/.tmux.conf
+" url: https://github.com/deepzz0/dotfiles/blob/master/.vimrc
 " email: deepzz.qi@gmail.com
 
 " Vundle {{{
