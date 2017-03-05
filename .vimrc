@@ -1,3 +1,7 @@
+" .vimrc for vim. maybe it worked well for osx.
+" url: https://github.com/deepzz0/dotfiles/blob/master/.tmux.conf
+" email: deepzz.qi@gmail.com
+
 " Vundle {{{
   set nocompatible              " be iMproved, required
   filetype off                  " required
