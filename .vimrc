@@ -2,7 +2,7 @@
 " url: https://github.com/deepzz0/dotfiles/blob/master/.vimrc
 " email: deepzz.qi@gmail.com
 
-" Vundle {{{
+" vundle {{{
   set nocompatible              " be iMproved, required
   filetype off                  " required
   
@@ -69,7 +69,7 @@
 " }}}
 
 
-" Vim {{{
+" vim {{{
   syntax on
   set shell=bash
   let mapleader = ','
@@ -84,7 +84,7 @@
   set cursorline                  " Highlight the current line
   " set cursorcolumn                " Highlight the current column
   " set mouse-=a                    " not enable mouse
-  set clipboard+=unnamed           " Shared clipboard
+  set clipboard+=unnamed          " Shared clipboard
   set backspace=indent,eol,start  " Allow backspacing over everything in insert mode
   set linespace=0                 " How to change the space between lines in vim?
   set updatetime=100
@@ -99,6 +99,7 @@
   set number                      " Show line numbers
   set numberwidth=4               " Number width
   set showmatch                   " Do not show matching brackets by flickering
+  set completeopt-=preview        " Don't show preview window
   
   set incsearch                   " Shows the match while typing
   set hlsearch                    " Highlight found searches
@@ -107,8 +108,8 @@
   
   set shiftwidth=4                " Default indent settings
   set softtabstop=4               " 
-  set expandtab                   " 
-  set autoindent                  " Automatic indentation
+  set expandtab                   " Use spaces instead of tabs
+  set autoindent                  " Automatic indent
   set smartindent                 " Smart indent
   
   set encoding=utf-8              " Set default encoding to UTF-8
@@ -133,14 +134,14 @@
 
   " }}}
 
-  " A buffer becomes hidden when it is abandoned {{{
+  " a buffer becomes hidden when it is abandoned {{{
     set hidden
     set wildmode=list:longest
     set ttyfast
 
   " }}}
   
-  " Code folding {{{
+  " code folding {{{
     set foldenable
     set foldmethod=indent           " manual,indent,expr,syntax,diff,marker
     set foldlevel=99
@@ -171,19 +172,19 @@
     vmap ) S)
   " }}}
   
-  " Smart way to move between windows {{{
+  " smart way to move between windows {{{
     map <C-j> <C-W>j
     map <C-k> <C-W>k
     map <C-h> <C-W>h
     map <C-l> <C-W>l
   " }}}
   
-  " Switch buffer {{{
+  " switch buffer {{{
     nmap <S-H> :bp<CR>
     nmap <S-L> :bn<CR>
   " }}}
   
-  " Switch tab {{{
+  " switch tab {{{
     noremap <leader>1 1gt
     noremap <leader>2 2gt
     noremap <leader>3 3gt
@@ -204,23 +205,23 @@
         autocmd InsertEnter * setlocal norelativenumber
         autocmd BufEnter * setlocal cursorline
         autocmd BufLeave * setlocal nocursorline
-        autocmd CompleteDone *.go  call OnGolangCompleteDone()
+        " autocmd CompleteDone *.go  call OnGolangCompleteDone()
     augroup END
     function! NumberToggle()
-      if(&relativenumber == 1)
-        set norelativenumber number
-      else
-        set relativenumber
-      endif
+        if(&relativenumber == 1)
+            set norelativenumber number
+        else
+            set relativenumber
+        endif
     endfunc
     nnoremap <C-n> :call NumberToggle()<CR>
   " }}}
 
-  " Remember last location{{{
-  autocmd BufReadPost *
-      \ if line("'\"")>0&&line("'\"")<=line("$") |
-      \   exe "normal g'\"" |
-      \ endif
+  " remember last location{{{
+    autocmd BufReadPost *
+        \ if line("'\"")>0&&line("'\"")<=line("$") |
+        \   exe "normal g'\"" |
+        \ endif
 
   "}}}
 
@@ -229,7 +230,8 @@
 
   autocmd BufNewFile,BufRead *.define setf define
 
-  autocmd FileType go :set noexpandtab " Do not use spaces instead of tabs
+  autocmd FileType go :set tabstop=4 noexpandtab " Do not use spaces instead of tabs
+  autocmd FileType c,cpp set shiftwidth=4 set expandtab
   autocmd FileType lua :set shiftwidth=4 
   autocmd FileType python set tabstop=4 shiftwidth=4 expandtab ai
   autocmd FileType ruby,javascript,html,css,xml set tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
@@ -260,12 +262,37 @@
 
 " }}}
 
+" close the current buffer {{{
+  map <leader>bd :Bclose<cr>:tabclose<cr>gT
+
+  " Don't close window, when deleting a buffer
+  command! Bclose call <SID>BufcloseCloseIt()
+  function! <SID>BufcloseCloseIt()
+     let l:currentBufNum = bufnr("%")
+     let l:alternateBufNum = bufnr("#")
+
+     if buflisted(l:alternateBufNum)
+       buffer #
+     else
+       bnext
+     endif
+
+     if bufnr("%") == l:currentBufNum
+       new
+     endif
+
+     if buflisted(l:currentBufNum)
+       execute("bdelete! ".l:currentBufNum)
+     endif
+  endfunction
+" }}}
+
 " gui {{{
   if has("gui_macvim")
       " Make the window slightly transparent
       set transparency=10 
-      " fullscreen
-      set fullscreen
+      " " fullscreen
+      " set fullscreen
 
       " default <c-p>
       let g:ctrlp_map = '<D-p>'
@@ -274,13 +301,9 @@
       nmap <D-R> :CtrlPBufTagAll<CR>
       imap <D-R> <esc>:CtrlPBufTagAll<CR>
 
-      " delete buffer
-      nmap <D-w> :bd<CR>
-      imap <D-w> <esc>:bd<CR>
-
       " comment
        map <D-/> :TComment<CR>
-       vmap <D-/> :TComment<CR>gv
+       vmap <D-/> :TComment<CR>g
 
       " ctrlsf
       nmap <D-f> :CtrlSF <C-R>=expand("<cword>")<CR>
@@ -319,47 +342,47 @@
   nmap <Leader>gi :GoInstall<CR>
   nmap <Leader>gr :GoRename<CR>
 
-  function! OnGolangCompleteDone()
-      if !exists('v:completed_item') || empty(v:completed_item)
-          return
-      endif
-
-      let complete_str = v:completed_item.word
-      if complete_str == ''
-          return
-      endif
-
-      let line = getline('.')
-      let next_char = line[col('.')-1]
-      if  next_char == "("
-          return
-      end
-      let cur_char =line[col('.')-2]
-
-      let abbr = v:completed_item.abbr
-      let startIdx = match(abbr,"(")
-      let endIdx = match(abbr,")")
-      if endIdx - startIdx > 1
-          let argsStr = strpart(abbr, startIdx+1, endIdx - startIdx -1)
-  	  let argsList = split(argsStr, ",")
-  	  let snippet = ""
-  	  if cur_char != "("
-              let snippet = "("
-  	  end
-  	  let c = 1
-  	  for i in argsList
-  	      if c > 1 
-  	          let snippet = snippet. ", "
-              endif
-              " strip space
-              let arg = substitute(i, '^\s*\(.\{-}\)\s*$', '\1', '') 
-              let snippet = snippet . '${'.c.":".arg.'}'
-              let c += 1
-          endfor
-          let snippet = snippet . ")$0"
-          call UltiSnips#Anon(snippet)
-      endif
-  endfunction
+  " function! OnGolangCompleteDone()
+  "     if !exists('v:completed_item') || empty(v:completed_item)
+  "         return
+  "     endif
+  "
+  "     let complete_str = v:completed_item.word
+  "     if complete_str == ''
+  "         return
+  "     endif
+  "
+  "     let line = getline('.')
+  "     let next_char = line[col('.')-1]
+  "     if  next_char == "("
+  "         return
+  "     end
+  "     let cur_char =line[col('.')-2]
+  "
+  "     let abbr = v:completed_item.abbr
+  "     let startIdx = match(abbr,"(")
+  "     let endIdx = match(abbr,")")
+  "     if endIdx - startIdx > 1
+  "         let argsStr = strpart(abbr, startIdx+1, endIdx - startIdx -1)
+  " 	  let argsList = split(argsStr, ",")
+  " 	  let snippet = ""
+  " 	  if cur_char != "("
+  "             let snippet = "("
+  " 	  end
+  " 	  let c = 1
+  " 	  for i in argsList
+  " 	      if c > 1
+  " 	          let snippet = snippet. ", "
+  "             endif
+  "             " strip space
+  "             let arg = substitute(i, '^\s*\(.\{-}\)\s*$', '\1', '')
+  "             let snippet = snippet . '${'.c.":".arg.'}'
+  "             let c += 1
+  "         endfor
+  "         let snippet = snippet . ")$0"
+  "         call UltiSnips#Anon(snippet)
+  "     endif
+  " endfunction
 
 " }}}
 
@@ -549,33 +572,34 @@
 " }}}
 
 " YouCompleteMe {{{
+  " preview window settiing
+  let g:ycm_add_preview_to_completeopt = 1
+  let g:ycm_autoclose_preview_window_after_completion = 0
+  let g:ycm_autoclose_preview_window_after_insertion = 1
+
+  " typing 2 chars
+  let g:ycm_min_num_of_chars_for_completion = 2
+  " Completion when typing inside comments
+  let g:ycm_complete_in_comments = 1  
+  " Query the UltiSnips plugin
+  let g:ycm_use_ultisnips_completer = 1 
+  " Collect identifiers from strings and comments and tag fiels
+  let g:ycm_collect_identifiers_from_comments_and_strings = 1   
+  let g:ycm_collect_identifiers_from_tags_files = 1
+
+  " some symbols
   let g:ycm_error_symbol = '>>'
   let g:ycm_warning_symbol = '>*'
 
   " Specifies Python interpreter to run jedi
   let g:ycm_python_binary_path = 'python'
 
-  " Completion when typing inside comments
-  let g:ycm_complete_in_comments = 1  
-
-  " Query the UltiSnips plugin
-  let g:ycm_use_ultisnips_completer = 1 
-
-  " Collect identifiers from strings and comments
-  let g:ycm_collect_identifiers_from_comments_and_strings = 1   
-
   " " Seed its identifier database
   " let g:ycm_seed_identifiers_with_syntax=1
   
-  " collect identifiers from tags files
-  let g:ycm_collect_identifiers_from_tags_files = 1
-  
-  " typing 2 chars
-  let g:ycm_min_num_of_chars_for_completion = 2 
-
-  "youcompleteme  默认tab  s-tab 和自动补全冲突
-  let g:ycm_key_list_select_completion = ['<Enter>', '<Down>']
-  let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>']
+  " youcompleteme select keys
+  let g:ycm_key_list_select_completion = ['<Down>']
+  let g:ycm_key_list_previous_completion = ['<Up>']
 
   " Where GoTo* commands result should be opened, same-buffer
   let g:ycm_goto_buffer_command = 'horizontal-split'
@@ -586,23 +610,31 @@
   let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
   " blacklist
   let g:ycm_filetype_blacklist = {
-      \ 'tagbar' : 1,
       \ 'gitcommit' : 1,
+      \ 'tagbar' : 1,
+      \ 'qf' : 1,
+      \ 'notes' : 1,
+      \ 'markdown' : 1,
+      \ 'unite' : 1,
+      \ 'text' : 1,
+      \ 'vimwiki' : 1,
+      \ 'pandoc' : 1,
+      \ 'infolog' : 1,
+      \ 'mail' : 1
       \}
 
 " }}}
 
 " UltiSnips {{{
-    let g:UltiSnipsExpandTrigger       = "<tab>"
-    let g:UltiSnipsJumpForwardTrigger  = "<tab>"
-    let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+    let g:UltiSnipsExpandTrigger       = "<TAB>"
+    let g:UltiSnipsJumpForwardTrigger  = "<TAB>"
+    let g:UltiSnipsJumpBackwardTrigger = "<S-TAB>"
     let g:UltiSnipsSnippetDirectories  = ['UltiSnips']
-    let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
-    " 定义存放代码片段的文件夹 .vim/UltiSnips下，使用自定义和默认的，将会的到全局，有冲突的会提示
-    " 进入对应filetype的snippets进行编辑
+    let g:UltiSnipsSnippetsDir = '~/.vim/bundle/vim-snippets/UltiSnips'
+    " edit current filetype's snippets
     map <leader>us :UltiSnipsEdit<CR>
 
-    " ctrl+j/k 进行选择
+    " ctrl+j/k
     func! g:JInYCM()
         if pumvisible()
             return "\<C-n>"
