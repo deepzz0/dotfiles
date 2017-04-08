@@ -74,7 +74,7 @@
   set shell=bash
   let mapleader = ','
 
-  set shortmess=atI"              " Close welcome page
+  set shortmess=atI              " Close welcome page
   set fillchars=vert:\ 
   
   set history=1000                " Store lots of :cmdline history
