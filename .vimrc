@@ -231,10 +231,10 @@
   autocmd BufNewFile,BufRead *.define setf define
 
   autocmd FileType go :set tabstop=4 noexpandtab " Do not use spaces instead of tabs
-  autocmd FileType c,cpp set shiftwidth=4 set expandtab
+  autocmd FileType c,cpp :set shiftwidth=4 expandtab
   autocmd FileType lua :set shiftwidth=4 
-  autocmd FileType python set tabstop=4 shiftwidth=4 expandtab ai
-  autocmd FileType ruby,javascript,html,css,xml set tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
+  autocmd FileType python :set tabstop=4 shiftwidth=4 expandtab ai
+  autocmd FileType ruby,javascript,html,css,xml :set tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
 
 " }}}
 
