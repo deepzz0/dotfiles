@@ -2,7 +2,7 @@
 
 vimrc 地址：[https://github.com/deepzz0/dotfiles/blob/master/.vimrc](https://github.com/deepzz0/dotfiles/blob/master/.vimrc)。欢迎完善本文档。
 
-![http://7xokm2.com1.z0.glb.clouddn.com/img/macvim.jpg](http://7xokm2.com1.z0.glb.clouddn.com/img/macvim.jpg)
+![macvim.jpg](pics/macvim.jpg)
 
 #### 使用流程
 

@@ -2,7 +2,7 @@
 
 tmux.conf 地址：[https://github.com/deepzz0/dotfiles/blob/master/.tmux.conf](https://github.com/deepzz0/dotfiles/blob/master/.tmux.conf)。欢迎完善本文档。
 
-![http://7xokm2.com1.z0.glb.clouddn.com/img/tmux.jpg](http://7xokm2.com1.z0.glb.clouddn.com/img/tmux.jpg)
+![tmux.jpg](pics/tmux.jpg)
 
 #### 使用流程
 
