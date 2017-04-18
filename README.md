@@ -13,3 +13,7 @@
 - `homebrew.sh`，自动安装 Homebrew 包管理工具（Darwin or Linux）。
 
 ### 演示文档
+
+* [vimrc 演示文档](https://github.com/deepzz0/dotfiles/tree/master/docs/macvim.md)
+* [tmux 演示文档](https://github.com/deepzz0/dotfiles/tree/master/docs/tmux.md)
+
