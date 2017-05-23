@@ -325,6 +325,14 @@
 
 " }}}
 
+" python-mode {{{
+  " use python 2 syntax
+  let g:pymode_python = 'python'
+  " close syntax when save file
+  let g:pymode_lint_on_write = 0
+  
+" }}}
+
 " vim-go {{{
   let g:go_highlight_functions = 1
   let g:go_highlight_methods = 1
@@ -592,7 +600,7 @@
   let g:ycm_warning_symbol = '>*'
 
   " Specifies Python interpreter to run jedi
-  let g:ycm_python_binary_path = 'python'
+  let g:ycm_python_binary_path = 'python3'
 
   " " Seed its identifier database
   " let g:ycm_seed_identifiers_with_syntax=1
