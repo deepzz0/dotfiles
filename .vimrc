@@ -326,7 +326,8 @@
 " }}}
 
 " python-mode {{{
-  " use python 2 syntax
+  " use python 3 syntax and you should compile
+  " macvim with --with-python3
   let g:pymode_python = 'python3'
   " close syntax when save file
   let g:pymode_lint_on_write = 0
