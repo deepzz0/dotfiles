@@ -327,7 +327,7 @@
 
 " python-mode {{{
   " use python 2 syntax
-  let g:pymode_python = 'python'
+  let g:pymode_python = 'python3'
   " close syntax when save file
   let g:pymode_lint_on_write = 0
   
