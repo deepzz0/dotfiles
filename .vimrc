@@ -577,6 +577,7 @@
 
   let g:ctrlsf_winsize = '30%'
   let g:ctrlsf_auto_close = 0
+  let g:ctrlsf_ignore_dir = ['vendor', 'bower_components', 'node_modules']
 
 " }}}
 
