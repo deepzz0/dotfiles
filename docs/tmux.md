@@ -26,7 +26,7 @@ tmux.conf 地址：[https://github.com/deepzz0/dotfiles/blob/master/.tmux.conf](
 
 4、显示 pane 编号：`前缀+q`。
 
-5、选中 pane：`前缀+j/k/h/l`，按数字选中。
+5、选中 pane：`前缀+j/k/h/l`。
 
 6、改变 pane 大小：`前缀+J/K/H/L`。
 
