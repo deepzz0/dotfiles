@@ -18,7 +18,7 @@ tmux.conf 地址：[https://github.com/deepzz0/dotfiles/blob/master/.tmux.conf](
 
 #### 效果与技巧
 
-1、前缀修改 `Ctrl+a` 为 `Ctrl+b`。
+1、前缀修改 `Ctrl+b` 为 `Ctrl+a`。
 
 2、重新加载 `.tmux.conf` 文件：`前缀+R`。
 
