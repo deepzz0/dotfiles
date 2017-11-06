@@ -15,7 +15,7 @@ filetype off                  " required
   call plug#begin('~/.vim/plugged')
 
   " nerdtree
-  Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+  Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
   Plug 'jistr/vim-nerdtree-tabs'
 
   " complete
@@ -31,7 +31,7 @@ filetype off                  " required
   Plug 'vim-scripts/matchit.zip'
 
   " enhancement
-  plug 'tomtom/tcomment_vim'
+  Plug 'tomtom/tcomment_vim'
   Plug 'terryma/vim-multiple-cursors'
   Plug 'tpope/vim-repeat' | Plug 'tpope/vim-surround'
 
