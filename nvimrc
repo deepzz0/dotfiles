@@ -1,5 +1,5 @@
 " .vimrc for neovim. maybe it worked well for osx.
-" url: https://github.com/deepzz0/dotfiles/blob/master/neovim/.vimrc
+" url: https://github.com/deepzz0/dotfiles/blob/master/nvimrc
 " environment:
 "   osx         10.12.6
 "   neovim      0.2.0

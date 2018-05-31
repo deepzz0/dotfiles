@@ -27,7 +27,13 @@ neovim:vim-plug
 	    mkdir -p ~/.config/nvim; \
 	fi;
 	@cp nvimrc $(nvimrc)
-	
+
+# install tmux.conf for tmux
+tmux:
+	@if [ -f ~/.tmux.conf ]; then \
+	    mv ~/.tmux.conf ~/.tmux.conf.bak; \
+	fi;
+	@cp tmux.conf ~/.tmux.conf
 # install homebrew
 homebrew:
 	@./homebrew.sh
