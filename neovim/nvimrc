@@ -1,9 +1,8 @@
-" .vimrc for neovim. maybe it worked well for osx.
-" url: https://github.com/deepzz0/dotfiles/blob/master/nvimrc
+" repo: https://github.com/deepzz0/dotfiles
+" email: deepzz.qi@gmail.com
 " environment:
 "   osx         10.12.6
 "   neovim      0.2.0
-" email: deepzz.qi@gmail.com
 
 set nocompatible              " be iMproved, required
 filetype off                  " required

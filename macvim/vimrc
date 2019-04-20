@@ -1,5 +1,4 @@
-" .vimrc for vim. maybe it worked well for osx.
-" url: https://github.com/deepzz0/dotfiles/blob/master/vimrc
+" repo: https://github.com/deepzz0/dotfiles
 " email: deepzz.qi@gmail.com
 
 " vundle {{{
@@ -35,7 +34,7 @@
   Plugin 'tpope/vim-surround'
   Plugin 'terryma/vim-multiple-cursors'
 
-  Plugin 'scrooloose/syntastic'
+  Plugin 'vim-syntastic/syntastic'
   Plugin 'klen/python-mode'
   Plugin 'xolox/vim-lua-ftplugin'
   Plugin 'xolox/vim-misc'
@@ -233,6 +232,7 @@
   autocmd FileType go :set tabstop=4 noexpandtab " Do not use spaces instead of tabs
   autocmd FileType c,cpp :set shiftwidth=4 expandtab
   autocmd FileType lua :set shiftwidth=4 
+  autocmd FileType sh :set shiftwidth=2 expandtab
   autocmd FileType python :set tabstop=4 shiftwidth=4 expandtab ai
   autocmd FileType ruby,javascript,html,css,xml :set tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
 
@@ -343,6 +343,7 @@
   let g:go_highlight_build_constraints = 1
   let g:go_fmt_command = "goimports"
   let g:go_list_type = "quickfix"
+  let g:go_def_mode = 'godef'
 
   nmap <Leader>gc :GoErrCheck<CR>
   nmap <Leader>gb :GoBuild<CR>
@@ -398,6 +399,7 @@
 " NERDTree {{{
   let g:NERDTreeDirArrows = 0
   let g:nerdtree_tabs_open_on_gui_startup = 0
+  let NERDTreeIgnore=['node_modules']
 
 " }}}
 
@@ -564,7 +566,8 @@
   let g:syntastic_error_symbol = "▶▶"
   let g:syntastic_warning_symbol = "⚠"
 
-  " let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+  let g:syntastic_sh_checkers = ['shellcheck']
+  "let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
   " passive
   let g:syntastic_mode_map = { "mode": "active",
       \ "active_filetypes": ["ruby", "go", "python"],
@@ -576,7 +579,7 @@
   command! CO CtrlSFOpen
 
   let g:ctrlsf_winsize = '30%'
-  let g:ctrlsf_auto_close = 0
+  let g:ctrlsf_auto_close = 1
   let g:ctrlsf_ignore_dir = ['vendor', 'bower_components', 'node_modules']
 
 " }}}
@@ -719,3 +722,4 @@ hi Visual     guibg=#2566FA
 " hi VertSplit guibg=#272822
 hi VertSplit guibg=#1B1D1E
 hi Cursor guibg=#FF0000
+

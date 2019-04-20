@@ -1,39 +1,26 @@
-.PHONY: vim-plug macvim neovim homebrew
+.PHONY: homebrew zsh macvim neovim tmux
 
 # Makefile for https://github.com/deepzz0/dotfiles
 # Maintainer deepzz.qi@gmail.com
 
-plug_path?=~/.local/share/nvim/site/autoload/plug.vim
-nvimrc?=~/.config/nvim/init.vim
+GIT_REPO=https://github.com/deepzz0/dotfiles
 
-vim-plug:
-	@if [ ! -f $(plug_path) ]; then \
-	    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-	    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim; \
-	fi;
-
-# install vimrc for macvim
-macvim:
-	@if [ -f ~/.vimrc ]; then \
-	    mv ~/.vimrc ~/.vimrc.bak; \
-	fi;
-	@cp vimrc ~/.vimrc
-
-# install nvimrc for neovim
-neovim:vim-plug
-	@if [ -f $(nvimrc) ]; then \
-	    mv $(nvimrc) $(nvimrc).bak; \
-	else \
-	    mkdir -p ~/.config/nvim; \
-	fi;
-	@cp nvimrc $(nvimrc)
-
-# install tmux.conf for tmux
-tmux:
-	@if [ -f ~/.tmux.conf ]; then \
-	    mv ~/.tmux.conf ~/.tmux.conf.bak; \
-	fi;
-	@cp tmux.conf ~/.tmux.conf
-# install homebrew
 homebrew:
-	@./homebrew.sh
+	@echo "installing homebrew..."
+	@ ./homebrew.sh
+
+zsh:
+	@echo "installing zsh..."
+	@cd ohmyzsh && ./install.sh
+
+macvim:
+	@echo "installing vim config..."
+	@cd macvim && ./install.sh
+
+neovim:
+	@echo "installing neovim config..."
+	@cd neovim && ./install.sh
+
+tmux:
+	@echo "installing tmux config..."
+	@cd tmux && ./install.sh
