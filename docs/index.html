@@ -30,175 +30,125 @@
       <h2 class="project-tagline">https://github.com/deepzz0/dotfiles.</h2>
       
       
-        <a href="" class="btn">Download .zip</a>
-        <a href="" class="btn">Download .tar.gz</a>
-      
     </header>
 
     <main id="content" class="main-content" role="main">
-      <p>Text can be <strong>bold</strong>, <em>italic</em>, or <del>strikethrough</del>.</p>
+      <h3 id="使用方式">使用方式</h3>
 
-<p><a href="./another-page.html">Link to another page</a>.</p>
+<p>你可以直接使用 <code class="highlighter-rouge">make</code> 命令安装或执行命令：</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 安装 homebrew
+$ make homebrew
 
-<p>There should be whitespace between paragraphs.</p>
+# 安装 zsh
+$ make zsh
 
-<p>There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.</p>
+# 安装 vim 配置
+$ make macvim
 
-<h1 id="header-1">Header 1</h1>
+# 安装 neovim 配置
+$ make neovim
 
-<p>This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.</p>
-
-<h2 id="header-2">Header 2</h2>
-
-<blockquote>
-  <p>This is a blockquote following a header.</p>
-
-  <p>When something is important enough, you do it even if the odds are not in your favor.</p>
-</blockquote>
-
-<h3 id="header-3">Header 3</h3>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Javascript code with syntax highlighting.</span>
-<span class="kd">var</span> <span class="nx">fun</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">lang</span><span class="p">(</span><span class="nx">l</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">dateformat</span><span class="p">.</span><span class="nx">i18n</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'./lang/'</span> <span class="o">+</span> <span class="nx">l</span><span class="p">)</span>
-  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
-<span class="p">}</span>
+# 安装 tmux 配置
+$ make tmux
 </code></pre></div></div>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Ruby code with syntax highlighting</span>
-<span class="no">GitHubPages</span><span class="o">::</span><span class="no">Dependencies</span><span class="p">.</span><span class="nf">gems</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">gem</span><span class="p">,</span> <span class="n">version</span><span class="o">|</span>
-  <span class="n">s</span><span class="p">.</span><span class="nf">add_dependency</span><span class="p">(</span><span class="n">gem</span><span class="p">,</span> <span class="s2">"= </span><span class="si">#{</span><span class="n">version</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="k">end</span>
-</code></pre></div></div>
+<h3 id="macvim">Macvim</h3>
+<p><img src="pics/macvim.jpg" alt="macvim.jpg" /></p>
 
-<h4 id="header-4">Header 4</h4>
+<p><strong>使用流程</strong></p>
 
-<ul>
-  <li>This is an unordered list following a header.</li>
-  <li>This is an unordered list following a header.</li>
-  <li>This is an unordered list following a header.</li>
-</ul>
+<p>1、确保你已安装 tmux，且版本在 2.1 以上。</p>
 
-<h5 id="header-5">Header 5</h5>
+<p>2、确保你已经安装：<code class="highlighter-rouge">reattach-to-user-namespace</code>。</p>
 
-<ol>
-  <li>This is an ordered list following a header.</li>
-  <li>This is an ordered list following a header.</li>
-  <li>This is an ordered list following a header.</li>
-</ol>
+<p>3、复制或软链本仓库文件<code class="highlighter-rouge">.tmux.conf</code> 到 <code class="highlighter-rouge">~/.tmux.conf</code>。</p>
 
-<h6 id="header-6">Header 6</h6>
+<p>4、享受你的 tmux 之旅。</p>
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">head1</th>
-      <th style="text-align: left">head two</th>
-      <th style="text-align: left">three</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">ok</td>
-      <td style="text-align: left">good swedish fish</td>
-      <td style="text-align: left">nice</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">out of stock</td>
-      <td style="text-align: left">good and plenty</td>
-      <td style="text-align: left">nice</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">ok</td>
-      <td style="text-align: left">good <code class="highlighter-rouge">oreos</code></td>
-      <td style="text-align: left">hmm</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">ok</td>
-      <td style="text-align: left">good <code class="highlighter-rouge">zoute</code> drop</td>
-      <td style="text-align: left">yumm</td>
-    </tr>
-  </tbody>
-</table>
+<p><strong>效果与技巧</strong></p>
 
-<h3 id="theres-a-horizontal-rule-below-this">There’s a horizontal rule below this.</h3>
+<p>1、前缀修改 <code class="highlighter-rouge">Ctrl+b</code> 为 <code class="highlighter-rouge">Ctrl+a</code>。</p>
 
-<hr />
+<p>2、重新加载 <code class="highlighter-rouge">.tmux.conf</code> 文件：<code class="highlighter-rouge">前缀+R</code>。</p>
 
-<h3 id="here-is-an-unordered-list">Here is an unordered list:</h3>
+<p>3、滑动鼠标进入 vi 模式。</p>
 
-<ul>
-  <li>Item foo</li>
-  <li>Item bar</li>
-  <li>Item baz</li>
-  <li>Item zip</li>
-</ul>
+<p>4、显示 pane 编号：<code class="highlighter-rouge">前缀+q</code>。</p>
 
-<h3 id="and-an-ordered-list">And an ordered list:</h3>
+<p>5、选中 pane：<code class="highlighter-rouge">前缀+j/k/h/l</code>。</p>
 
-<ol>
-  <li>Item one</li>
-  <li>Item two</li>
-  <li>Item three</li>
-  <li>Item four</li>
-</ol>
+<p>6、改变 pane 大小：<code class="highlighter-rouge">前缀+J/K/H/L</code>。</p>
 
-<h3 id="and-a-nested-list">And a nested list:</h3>
+<p>7、创建新窗口：<code class="highlighter-rouge">前缀+c</code>。</p>
 
-<ul>
-  <li>level 1 item
-    <ul>
-      <li>level 2 item</li>
-      <li>level 2 item
-        <ul>
-          <li>level 3 item</li>
-          <li>level 3 item</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>level 1 item
-    <ul>
-      <li>level 2 item</li>
-      <li>level 2 item</li>
-      <li>level 2 item</li>
-    </ul>
-  </li>
-  <li>level 1 item
-    <ul>
-      <li>level 2 item</li>
-      <li>level 2 item</li>
-    </ul>
-  </li>
-  <li>level 1 item</li>
-</ul>
+<p>8、关闭窗口：<code class="highlighter-rouge">前缀+&amp;</code>。</p>
 
-<h3 id="small-image">Small image</h3>
+<p>9、选择窗口：<code class="highlighter-rouge">前缀+窗口数字</code>。</p>
 
-<p><img src="https://assets-cdn.github.com/images/icons/emoji/octocat.png" alt="Octocat" /></p>
+<p>10、新建 pane：<code class="highlighter-rouge">前缀+v/s</code>。</p>
 
-<h3 id="large-image">Large image</h3>
+<p>11、关闭 pane：<code class="highlighter-rouge">前缀+x</code>。</p>
 
-<p><img src="https://guides.github.com/activities/hello-world/branching.png" alt="Branching" /></p>
+<p>12、进入复制模式：<code class="highlighter-rouge">前缀+[</code>，按 <code class="highlighter-rouge">y</code> 复制到系统剪贴板，<code class="highlighter-rouge">Enter</code> 复制到 tmux 剪贴板。</p>
 
-<h3 id="definition-lists-can-be-used-with-html-syntax">Definition lists can be used with HTML syntax.</h3>
+<p>13、粘贴剪贴板内容：<code class="highlighter-rouge">前缀+]</code>。</p>
 
-<dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
-<dt>Color</dt>
-<dd>Green</dd>
-</dl>
+<h3 id="tmux">Tmux</h3>
+<p><img src="assets/img/tmux.jpg" alt="tmux.jpg" /></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-</code></pre></div></div>
+<p><strong>使用流程</strong></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The final element.
-</code></pre></div></div>
+<p>1、复制或软链本仓库文件 <code class="highlighter-rouge">.vimrc</code> 到 <code class="highlighter-rouge">~/.vimrc</code>。</p>
+
+<p>2、安装 vim 插件管理器：<code class="highlighter-rouge">$ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim</code>。</p>
+
+<p>3、进入 macvim，输入  <code class="highlighter-rouge">:PluginInstall</code> 安装插件。</p>
+
+<p>4、编译代码补全插件 <code class="highlighter-rouge">YouCompleteMe</code>：<a href="https://github.com/Valloric/YouCompleteMe#mac-os-x">https://github.com/Valloric/YouCompleteMe#mac-os-x</a>。</p>
+
+<p>5、享受你的 vim 编程之旅。</p>
+
+<p><strong>效果与技巧</strong></p>
+
+<p>1、打开与关闭目录 <em>NERDTree</em>：<code class="highlighter-rouge">⌘+e</code>。</p>
+
+<p>2、相对或绝对行号显示：<code class="highlighter-rouge">Ctrl+n</code>。</p>
+
+<p>3、左右切换 Buffer：<code class="highlighter-rouge">H/L</code>=&gt;<code class="highlighter-rouge">Shift+H/L</code>。</p>
+
+<p>4、折叠代码段：<code class="highlighter-rouge">,+zz</code>。</p>
+
+<p>5、简单符号环绕：<code class="highlighter-rouge">VISUAL</code> 模式，选中字符，输入符号。支持：”，’，`，[]，()，{}。</p>
+
+<p>6、切换窗口：<code class="highlighter-rouge">Ctrl+j/k/h/l</code>。</p>
+
+<p>7、切换 Tab：<code class="highlighter-rouge">,+0-9</code>。</p>
+
+<p>8、超级权限保存文件：<code class="highlighter-rouge">:w!!</code>，该命令需要快速键入，否则无效。</p>
+
+<p>9、取消搜索高亮：<code class="highlighter-rouge">,+/</code>。</p>
+
+<p>10、选择所有文本：<code class="highlighter-rouge">,+s+a</code>。</p>
+
+<p>11、快速保存：<code class="highlighter-rouge">,+w</code>。</p>
+
+<p>12、删除 Buffer：<code class="highlighter-rouge">,+b+d</code>。</p>
+
+<p>13、搜索文件：<code class="highlighter-rouge">⌘+p</code>。</p>
+
+<p>14、全局搜索关键词 CtrlSF：<code class="highlighter-rouge">⌘+f</code>。</p>
+
+<p>15、在此打开 CtrlSF 结果：<code class="highlighter-rouge">:CO</code>。</p>
+
+<p>16、批量注释代码：<code class="highlighter-rouge">⌘+/</code>。</p>
+
+<p>17、显示 Tagbar：<code class="highlighter-rouge">⌘+y</code>。</p>
+
+<p>18、选中代码片段 Ultisnips：<code class="highlighter-rouge">TAB</code>。</p>
+
+<p>19、批量选中，批量修改：<code class="highlighter-rouge">Enter</code>。</p>
+
+<p>更多详细请查看 <code class="highlighter-rouge">.vimrc</code> 内容。</p>
 
 
       <footer class="site-footer">
