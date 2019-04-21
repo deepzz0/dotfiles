@@ -24,3 +24,7 @@ neovim:
 tmux:
 	@echo "installing tmux config..."
 	@cd tmux && ./install.sh
+
+acmesh:
+	@echo "installing acme.sh..."
+	@cd acmesh && ./install.sh
