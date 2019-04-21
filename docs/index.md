@@ -22,8 +22,8 @@ $ make neovim
 $ make tmux
 ```
 
-### Macvim
-![macvim.jpg](assets/macvim.jpg)
+### Tmux
+![tmux.jpg](assets/tmux.jpg)
 
 **使用流程**
 
@@ -64,9 +64,8 @@ $ make tmux
 
 13、粘贴剪贴板内容：`前缀+]`。
 
-
-### Tmux
-![tmux.jpg](assets/tmux.jpg)
+### Macvim
+![macvim.jpg](assets/macvim.jpg)
 
 **使用流程**
 
