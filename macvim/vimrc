@@ -404,7 +404,7 @@
 " }}}
 
 " nerdtree-git-plugin symbols {{{
-  let g:NERDTreeIndicatorMapCustom = {
+  let g:NERDTreeGitStatusIndicatorMapCustom = {
       \ "Modified"  : "✹",
       \ "Staged"    : "✚",
       \ "Untracked" : "✭",
@@ -578,6 +578,7 @@
 " CtrlSF {{{
   command! CO CtrlSFOpen
 
+  let g:ctrlsf_ackprg = 'rg'
   let g:ctrlsf_winsize = '30%'
   let g:ctrlsf_auto_close = 1
   let g:ctrlsf_ignore_dir = ['vendor', 'bower_components', 'node_modules']
