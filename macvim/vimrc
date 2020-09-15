@@ -312,7 +312,7 @@
 
       " nerdtree
       map <D-e> :NERDTreeTabsToggle<CR>
-      map <leader>e :NERDTreeFind<CR><CR>
+      map <leader>e :NERDTreeFind<CR>
 
       " Window switch map {{{
         " map <D-j> <C-W>j
@@ -696,7 +696,7 @@
   nnoremap <leader>gc :Gcommit<CR>
   nnoremap <leader>gp :Gpush<CR>
   nnoremap <leader>gl :Gpull<CR>
-  nnoremap <leader>gb  :Gblame<CR>
+  nnoremap <leader>gb :Gblame<CR>
   nnoremap <leader>gst :Gstatus<CR>
   nnoremap <leader>gd :Gdiff<CR>
   nnoremap <leader>glg :Glog<CR>
