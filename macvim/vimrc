@@ -81,7 +81,7 @@
   set nobackup                    " Don't create annoying backup files
   set noerrorbells                " No beeps
   set cursorline                  " Highlight the current line
-  " set cursorcolumn                " Highlight the current column
+  set cursorcolumn                " Highlight the current column
   " set mouse-=a                    " not enable mouse
   set clipboard+=unnamed          " Shared clipboard
   set backspace=indent,eol,start  " Allow backspacing over everything in insert mode
