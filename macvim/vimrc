@@ -123,7 +123,10 @@
   set laststatus=2                " Always show the status line. or 1
   
   " theme setting {{{
-    set guioptions=''
+    set guioptions-=l             " Overflow scroll bar
+    set guioptions-=L
+    set guioptions-=r
+    set guioptions-=R
     set background=dark           " Background color
     set t_Co=256
     set guifont=Source\ Code\ Pro\ Light:h13
